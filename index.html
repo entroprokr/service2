@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENTROPRO 스타트업 구조대 | RESTRUCTURE · RECOVER · RETURN</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"/>
+<style>
+:root {
+  --bg-main: #FFFFFF;
+  --text-900: #132238;
+  --text-700: #4A5568;
+  --text-500: #828FA3;
+  --accent-gold: #C59A5C;
+  --border-line: 1px solid rgba(19, 34, 56, 0.15);
+  --border-light: 1px solid rgba(19, 34, 56, 0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Pretendard', 'Montserrat', sans-serif;
+  background-color: var(--bg-main);
+  background-image: url('bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text-900);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.global-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(245,247,250,0.95) 100%);
+  z-index: -1;
+}
+
+/* ── TYPOGRAPHY ── */
+.text-huge {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(40px, 8vw, 90px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--text-900);
+}
+.title-kr { font-size: clamp(24px, 4vw, 34px); font-weight: 800; line-height: 1.4; letter-spacing: -0.03em; word-break: keep-all; }
+.body-text { font-size: 16.5px; font-weight: 500; color: var(--text-700); line-height: 1.75; word-break: keep-all; }
+.label-box {
+  display: inline-flex; padding: 8px 16px;
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: #fff; background: var(--text-900);
+  margin-bottom: 24px;
+}
+.label-outline {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-900); border: 1px solid var(--text-900);
+  padding: 6px 14px;
+}
+
+/* ── LAYOUT ── */
+.container {
+  max-width: 1400px; margin: 0 auto;
+  border-left: var(--border-line); border-right: var(--border-line);
+  background: rgba(255, 255, 255, 0.4);
+}
+.grid-row { display: flex; flex-wrap: wrap; border-bottom: var(--border-line); }
+.col-1 { flex: 1 1 100%; }
+.col-2 { flex: 1 1 50%; }
+.col-3 { flex: 1 1 33.333%; }
+.cell { padding: 80px 48px; border-right: var(--border-line); display: flex; flex-direction: column; }
+.cell:last-child { border-right: none; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: rgba(255,255,255,0.92); border-bottom: var(--border-line);
+  backdrop-filter: blur(12px);
+}
+.nav-inner {
+  max-width: 1400px; margin: 0 auto; padding: 0 32px; height: 64px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-left: var(--border-line); border-right: var(--border-line);
+}
+.nav-brand { font-weight: 900; font-size: 18px; display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; }
+.nav-brand img { height: 20px; }
+.nav-cv-link {
+  font-size: 13px; font-weight: 800; color: var(--text-900); text-decoration: none; cursor: pointer;
+  border-bottom: 2px solid var(--text-900); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
+  font-family: 'Pretendard', sans-serif;
+}
+.nav-cv-link:hover { color: var(--accent-gold); border-color: var(--accent-gold); }
+
+/* ── MARQUEE ── */
+.marquee-wrap {
+  width: 100%; overflow: hidden; background: var(--text-900); color: #fff;
+  padding: 14px 0; display: flex; white-space: nowrap; margin-top: 64px;
+  border-bottom: var(--border-line);
+}
+.marquee-content {
+  display: flex; animation: scrollText 28s linear infinite;
+  font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 2.5px;
+}
+.marquee-content span { margin: 0 32px; }
+.marquee-content .gold { color: var(--accent-gold); }
+@keyframes scrollText { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── HERO ── */
+.hero-wrapper { position: relative; padding: 120px 48px 0; }
+.hero-stat-bar { display: flex; border-top: var(--border-line); background: #fff; }
+.hero-stat { flex: 1; padding: 36px 48px; border-right: var(--border-line); }
+.hero-stat:last-child { border-right: none; }
+.stat-num { font-family: 'Montserrat', sans-serif; font-size: 38px; font-weight: 900; color: var(--text-900); margin-bottom: 10px; letter-spacing: -1px; }
+.stat-label { font-size: 13.5px; font-weight: 700; color: var(--text-700); line-height: 1.5; }
+
+/* ── DARK CELL ── */
+.cell-dark { background: var(--text-900); color: #fff; }
+.cell-dark .title-kr { color: #fff; }
+.cell-dark .body-text { color: rgba(255,255,255,0.75); }
+
+/* ── CRISIS STATS ── */
+.crisis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2px; margin-top: 48px; }
+.crisis-card {
+  background: rgba(255,255,255,0.06); padding: 32px 28px; text-align: center; position: relative;
+}
+.crisis-num {
+  font-family: 'Montserrat', sans-serif; font-size: 52px; font-weight: 900;
+  color: var(--accent-gold); line-height: 1; margin-bottom: 8px; letter-spacing: -2px;
+}
+.crisis-sub { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+/* ── SERVICES ── */
+.svc-card {
+  border-bottom: var(--border-line); padding: 28px 0;
+}
+.svc-card:last-child { border-bottom: none; }
+.svc-num { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 900; color: var(--accent-gold); letter-spacing: 2px; margin-bottom: 10px; }
+.svc-title { font-size: 18px; font-weight: 800; color: var(--text-900); margin-bottom: 8px; letter-spacing: -0.3px; }
+.svc-body { font-size: 14px; color: var(--text-700); line-height: 1.65; font-weight: 500; }
+.svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.svc-tag {
+  font-size: 11px; font-weight: 700; color: var(--text-500);
+  border: 1px solid rgba(19,34,56,0.15); padding: 3px 10px;
+  font-family: 'Pretendard', sans-serif; letter-spacing: 0.3px;
+}
+
+/* ── PROCESS STEPS ── */
+.process-row { display: flex; align-items: stretch; gap: 0; }
+.process-step {
+  flex: 1; padding: 40px 36px; border-right: var(--border-line); position: relative;
+  background: #fff;
+}
+.process-step:last-child { border-right: none; }
+.step-num {
+  font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 900;
+  color: rgba(19,34,56,0.06); line-height: 1; margin-bottom: 16px; letter-spacing: -2px;
+}
+.step-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 800;
+  letter-spacing: 1.5px; color: var(--accent-gold); margin-bottom: 12px;
+}
+.step-title { font-size: 17px; font-weight: 800; color: var(--text-900); margin-bottom: 10px; letter-spacing: -0.3px; }
+.step-body { font-size: 14px; color: var(--text-700); line-height: 1.65; font-weight: 500; }
+.step-tag {
+  display: inline-flex; margin-top: 16px; padding: 6px 14px; background: var(--accent-gold);
+  color: #fff; font-size: 12px; font-weight: 800; letter-spacing: 0.5px;
+}
+
+/* ── INHOUSE BAND ── */
+.inhouse-band {
+  background: var(--text-900); padding: 48px 64px;
+  display: flex; align-items: center; gap: 64px; flex-wrap: wrap;
+}
+.inhouse-quote {
+  font-size: clamp(18px, 2.5vw, 24px); font-weight: 800; color: #fff;
+  line-height: 1.4; letter-spacing: -0.5px; flex: 2; min-width: 280px; word-break: keep-all;
+}
+.inhouse-quote em { color: var(--accent-gold); font-style: normal; }
+.inhouse-facts { display: flex; gap: 32px; flex-wrap: wrap; flex: 1; min-width: 220px; }
+.inhouse-fact { text-align: center; }
+.inhouse-fact-num { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 900; color: var(--accent-gold); }
+.inhouse-fact-label { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.7); margin-top: 4px; line-height: 1.4; }
+
+/* ── GLOBAL STRIP ── */
+.global-stat-row { display: flex; flex-wrap: wrap; }
+.global-stat-cell {
+  flex: 1; min-width: 200px; padding: 48px 40px; text-align: center;
+  border-right: var(--border-line); background: rgba(197,154,92,0.04);
+}
+.global-stat-cell:last-child { border-right: none; }
+.gstat-num { font-family: 'Montserrat', sans-serif; font-size: 56px; font-weight: 900; color: var(--accent-gold); line-height: 1; margin-bottom: 8px; }
+.gstat-label { font-size: 14px; font-weight: 700; color: var(--text-900); margin-bottom: 6px; }
+.gstat-sub { font-size: 12.5px; color: var(--text-500); font-weight: 500; }
+
+/* ── FORM ── */
+.fp-row { display: flex; align-items: flex-start; gap: 20px; padding: 28px 0; border-bottom: var(--border-light); }
+.fp-row:first-child { padding-top: 0; }
+.fp-row:last-child { border-bottom: none; }
+.fp-check { width: 24px; height: 24px; border: 1px solid rgba(19,34,56,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 4px; }
+.fp-title { font-size: 16px; font-weight: 800; color: var(--text-900); margin-bottom: 6px; letter-spacing: -0.3px; }
+.fp-sub { font-size: 14px; color: var(--text-700); line-height: 1.6; }
+
+/* ── BUTTONS ── */
+.btn-wrapper { display: flex; flex-direction: column; gap: 0; }
+.btn-massive {
+  display: flex; justify-content: space-between; align-items: center; cursor: pointer; border: none;
+  width: 100%; background: var(--text-900); color: #fff; padding: 32px 48px;
+  font-family: 'Pretendard', sans-serif; font-size: 18px; font-weight: 800;
+  text-decoration: none; letter-spacing: 0; transition: all 0.3s ease;
+}
+.btn-massive:hover { background: var(--accent-gold); padding-left: 60px; }
+.btn-massive-gold {
+  display: flex; justify-content: space-between; align-items: center; cursor: pointer; border: none;
+  width: 100%; background: var(--accent-gold); color: #fff; padding: 28px 48px;
+  font-family: 'Pretendard', sans-serif; font-size: 16px; font-weight: 800;
+  text-decoration: none; letter-spacing: 0; transition: all 0.3s ease;
+}
+.btn-massive-gold:hover { background: #b08840; padding-left: 60px; }
+.btn-secondary {
+  display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+  width: 100%; background: transparent; color: var(--text-900); padding: 22px 48px;
+  font-family: 'Pretendard', sans-serif; font-size: 15px; font-weight: 800;
+  text-decoration: none; border: 1px solid rgba(19,34,56,0.15); transition: all 0.3s ease;
+}
+.btn-secondary:hover { background: rgba(19,34,56,0.04); padding-left: 60px; }
+
+/* ── FLOATING CTA ── */
+.floating-cta {
+  position: fixed; bottom: 32px; right: 32px; z-index: 999;
+  background: #fff; border: 1px solid rgba(19,34,56,0.15); width: 360px;
+  display: flex; flex-direction: column; animation: slideUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+  box-shadow: 16px 16px 0 rgba(19,34,56,0.1);
+}
+@keyframes slideUp { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.fc-header { padding: 14px 20px; background: var(--text-900); color: #fff; display: flex; justify-content: space-between; align-items: center; }
+.fc-body { padding: 24px; text-align: center; }
+.fc-btn {
+  display: block; width: 100%; cursor: pointer; background: var(--accent-gold); color: #fff;
+  padding: 14px 0; font-family: 'Pretendard', sans-serif; font-size: 15px; font-weight: 800;
+  text-decoration: none; transition: 0.2s; border: none; margin-top: 12px;
+}
+.fc-btn:hover { background: #b08840; }
+.fc-btn-sub {
+  display: block; width: 100%; cursor: pointer; background: transparent; color: var(--text-900);
+  padding: 10px 0; font-family: 'Pretendard', sans-serif; font-size: 13px; font-weight: 700;
+  text-decoration: none; transition: 0.2s; border: 1px solid rgba(19,34,56,0.2); margin-top: 6px;
+}
+.fc-btn-sub:hover { background: rgba(19,34,56,0.04); }
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(19,34,56,0.95); backdrop-filter: blur(8px);
+  z-index: 2000; display: none; align-items: center; justify-content: center; padding: 24px;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.modal-overlay.show { opacity: 1; display: flex; }
+.modal-container {
+  background: #fff; width: 100%; max-width: 1000px; height: 90vh;
+  border-radius: 12px; display: flex; flex-direction: column; overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+}
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  background: #F4F6F9; border-bottom: var(--border-light); padding: 0; flex-shrink: 0;
+}
+.modal-tabs { display: flex; height: 100%; }
+.tab-btn {
+  background: transparent; border: none; padding: 22px 36px;
+  font-family: 'Pretendard', sans-serif; font-size: 15px; font-weight: 800;
+  color: var(--text-500); cursor: pointer; transition: 0.2s; letter-spacing: -0.3px;
+}
+.tab-btn.active { color: var(--text-900); background: #fff; border-top: 3px solid var(--accent-gold); }
+.tab-btn:hover:not(.active) { color: var(--text-900); background: rgba(255,255,255,0.5); }
+.modal-close {
+  background: transparent; border: none; font-size: 32px; font-weight: 300;
+  color: var(--text-900); padding: 0 24px; cursor: pointer; opacity: 0.5; transition: 0.2s;
+}
+.modal-close:hover { opacity: 1; color: var(--accent-gold); }
+.modal-body { flex: 1; overflow-y: auto; background: #fff; }
+.tab-content { display: none; padding: 48px; }
+.tab-content.active { display: block; animation: fadeIn 0.4s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── CV ── */
+.cv-header { border-bottom: 2px solid var(--text-900); padding-bottom: 24px; margin-bottom: 32px; }
+.cv-title { font-size: 28px; font-weight: 900; color: var(--text-900); margin-bottom: 8px; letter-spacing: -0.5px; }
+.cv-sub { font-size: 14px; font-weight: 600; color: var(--text-500); line-height: 1.6; }
+.cv-section { margin-bottom: 44px; }
+.cv-sec-title { font-size: 11px; font-weight: 900; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+.cv-tl-item { display: flex; gap: 24px; margin-bottom: 24px; }
+.cv-tl-year { width: 130px; flex-shrink: 0; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 800; color: var(--text-500); text-align: right; padding-top: 3px; }
+.cv-tl-body { flex: 1; padding-left: 24px; border-left: 2px solid var(--border-light); position: relative; }
+.cv-tl-body::before { content: ''; position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--text-900); }
+.cv-corp { font-size: 17px; font-weight: 800; color: var(--text-900); margin-bottom: 4px; }
+.cv-role { font-size: 12px; font-weight: 700; color: var(--accent-gold); margin-bottom: 10px; letter-spacing: 0.5px; }
+.cv-desc { font-size: 14px; color: var(--text-700); line-height: 1.65; word-break: keep-all; font-weight: 500; }
+
+.nav-sq { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: var(--text-900); color: #fff; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 900; margin-right: 8px; }
+.track-record-band { background: rgba(19,34,56,0.03); border-bottom: var(--border-line); padding: 16px 0; text-align: center; font-family: 'Pretendard', sans-serif; font-size: 13px; font-weight: 800; color: var(--text-500); letter-spacing: 0.5px; }
+.track-record-band span { color: var(--text-900); margin: 0 14px; }
+
+@media(max-width: 1024px) {
+  .col-2, .col-3 { flex: 1 1 100%; }
+  .cell { border-right: none; border-bottom: var(--border-line); padding: 48px 24px; }
+  .hero-stat-bar { flex-direction: column; }
+  .hero-stat { border-right: none; border-bottom: var(--border-line); }
+  .floating-cta { display: none; }
+  .hero-wrapper { padding: 80px 24px 0; }
+  .inhouse-band { padding: 48px 32px; gap: 32px; }
+  .tab-btn { padding: 18px 16px; font-size: 14px; }
+  .tab-content { padding: 24px; }
+  .cv-tl-item { flex-direction: column; gap: 8px; }
+  .cv-tl-year { text-align: left; width: auto; }
+  .process-row { flex-direction: column; }
+  .process-step { border-right: none; border-bottom: var(--border-line); }
+  .global-stat-row { flex-direction: column; }
+  .global-stat-cell { border-right: none; border-bottom: var(--border-line); }
+}
+</style>
+</head>
+<body>
+
+<div class="global-overlay"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <img src="logo.png" alt="ENTROPRO">
+      ENTROPRO
+      <span style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:700; color:var(--text-500); letter-spacing:0; margin-left:4px;">스타트업 구조대</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:20px;">
+      <a onclick="openModal('profile')" class="nav-cv-link">파트너 이력 보기</a>
+      <button onclick="openModal('tally')" class="label-outline" style="cursor:pointer; border:none; background:var(--text-900); color:#fff; padding:8px 16px;">무료 진단 신청</button>
+    </div>
+  </div>
+</nav>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-content">
+    <span class="gold">RESTRUCTURE</span><span>·</span>
+    <span class="gold">RECOVER</span><span>·</span>
+    <span class="gold">RETURN</span><span>•</span>
+    <span>INHOUSE PARTNER</span><span>•</span>
+    <span>IR ENGINEERING</span><span>•</span>
+    <span>INVESTOR MATCHING</span><span>•</span>
+    <span>EXIT & M&A</span><span>•</span>
+    <span>GLOBAL SCALE-UP</span><span>•</span>
+    <span class="gold">RESTRUCTURE</span><span>·</span>
+    <span class="gold">RECOVER</span><span>·</span>
+    <span class="gold">RETURN</span><span>•</span>
+    <span>INHOUSE PARTNER</span><span>•</span>
+    <span>IR ENGINEERING</span><span>•</span>
+    <span>INVESTOR MATCHING</span><span>•</span>
+    <span>EXIT & M&A</span><span>•</span>
+    <span>GLOBAL SCALE-UP</span><span>•</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="grid-row hero-wrapper">
+    <div class="cell col-1" style="border-right:none; border-bottom:none; padding-bottom:70px;">
+      <div class="label-box">스타트업 구조대</div>
+      <h1 class="text-huge" style="margin-bottom:24px;">RESTRUCTURE<br>RECOVER<br>RETURN.</h1>
+      <p class="title-kr" style="margin-bottom:40px; max-width:800px;">
+        잠재력은 있지만 성장이 정체된 스타트업에게,<br>
+        글로벌 무대로 도약할 실행 파트너가 합류합니다.
+      </p>
+      <p class="body-text" style="max-width:760px; font-size:17px;">
+        시리즈 A, B 이후 성장이 멈췄습니까? 투자가 끊겼습니까?<br>
+        단순한 자문사가 아닙니다. <b>주 2~3회 직접 현장에 참여하는 인하우스 파트너</b>로서,<br>
+        650억 원 이상의 투자를 집행해온 심사역 출신이 이번엔 대표님 편에 섭니다.<br><br>
+        구조를 재설계하고, 투자자를 연결하고, 글로벌 무대로 함께 나아갑니다.
+      </p>
+    </div>
+
+    <!-- HERO STATS — ENTROPRO TRACK RECORD -->
+    <div class="hero-stat-bar">
+      <div class="hero-stat">
+        <div class="stat-num">650억+</div>
+        <div class="stat-label">직접 집행한 투자 규모<br><span style="font-weight:500; color:var(--text-500);">심사역 관점에서 IR을 봅니다</span></div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">13건</div>
+        <div class="stat-label">투자·M&A 직접 실행 경험<br><span style="font-weight:500; color:var(--text-500);">(전략투자 · 구주 · LP 출자)</span></div>
+      </div>
+      <div class="hero-stat">
+        <div class="stat-num">16년+</div>
+        <div class="stat-label">제조 현장 → CVC → VC → AC<br><span style="font-weight:500; color:var(--text-500);">투자 전주기 실전 경험</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRACK RECORD BAND -->
+  <div class="track-record-band">
+    주요 실무 거점 :
+    <span>대림 (DL그룹) CVC</span> •
+    <span>로이투자파트너스 VC</span> •
+    <span>한양대 기술지주 AC</span> •
+    <span>더이노베이터스 AC</span>
+  </div>
+
+  <!-- CRISIS SECTION — DARK with stats -->
+  <div class="grid-row">
+    <div class="cell col-1 cell-dark" style="padding-bottom:0;">
+      <div class="label-box" style="background:rgba(255,255,255,0.15); color:#fff;">한국 스타트업의 현실 (THE REALITY)</div>
+      <h2 class="title-kr" style="margin-bottom:16px; max-width:700px;">좋은 아이디어만으로는 살아남을 수 없습니다.</h2>
+      <p class="body-text" style="max-width:680px; margin-bottom:0;">
+        글로벌 투자 축소와 국내 시장 냉각이 겹치면서, 스타트업의 생존 방정식이 근본적으로 바뀌었습니다. 시리즈 A·B를 받았어도 다음 단계로 나아가지 못하는 기업이 급증하고 있습니다.
+      </p>
+      <div class="crisis-grid">
+        <div class="crisis-card">
+          <div class="crisis-num">22<span style="font-size:28px;">%</span></div>
+          <div class="crisis-sub">창업 5년 후<br>생존율</div>
+        </div>
+        <div class="crisis-card">
+          <div class="crisis-num">58<span style="font-size:28px;">%</span></div>
+          <div class="crisis-sub">시리즈 A 이후<br>성장 정체율</div>
+        </div>
+        <div class="crisis-card">
+          <div class="crisis-num">70<span style="font-size:28px;">%</span></div>
+          <div class="crisis-sub">재무·운영·HR<br>전문성 부족</div>
+        </div>
+        <div class="crisis-card">
+          <div class="crisis-num">83<span style="font-size:28px;">%</span></div>
+          <div class="crisis-sub">글로벌 진출<br>어려움 직면</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL OPPORTUNITY STRIP -->
+  <div class="grid-row" style="background:#fff;">
+    <div style="flex:1; padding:40px 64px; border-bottom:var(--border-line);">
+      <div style="display:flex; align-items:center; gap:16px; margin-bottom:8px;">
+        <div class="label-box" style="margin-bottom:0; background:var(--accent-gold);">글로벌 기회 (GLOBAL UPSIDE)</div>
+      </div>
+      <p style="font-size:15px; color:var(--text-700); font-weight:500; word-break:keep-all;">
+        위기의 반대편에는 기회가 있습니다. 해외 투자자들의 한국 스타트업 관심이 증가하는 지금, 올바른 구조를 갖춘 기업에게는 전례 없는 도약의 창이 열려 있습니다.
+      </p>
+    </div>
+    <div class="global-stat-row" style="flex:1; border-bottom:var(--border-line);">
+      <div class="global-stat-cell">
+        <div class="gstat-num">75<span style="font-size:32px; font-weight:900;">%</span></div>
+        <div class="gstat-label">글로벌 확장 시<br>기업가치 상승률</div>
+        <div class="gstat-sub">글로벌 진출 성공 기업 평균</div>
+      </div>
+      <div class="global-stat-cell">
+        <div class="gstat-num">3<span style="font-size:32px; font-weight:900;">배</span></div>
+        <div class="gstat-label">글로벌 진출 기업의<br>후속 투자 확률</div>
+        <div class="gstat-sub">국내 유사 스테이지 대비</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INHOUSE MODEL BAND -->
+  <div class="inhouse-band" style="border-bottom:var(--border-line);">
+    <div class="inhouse-quote">
+      단순한 자문사가 아닙니다.<br>
+      <em>팀원처럼 함께 실행하는</em><br>
+      인하우스 파트너입니다.
+    </div>
+    <div class="inhouse-facts">
+      <div class="inhouse-fact">
+        <div class="inhouse-fact-num">주 2~3회</div>
+        <div class="inhouse-fact-label">현장 직접 참여<br>상주형 실행 지원</div>
+      </div>
+      <div class="inhouse-fact">
+        <div class="inhouse-fact-num">1:1</div>
+        <div class="inhouse-fact-label">전담 파트너 배정<br>밀착 협업 구조</div>
+      </div>
+      <div class="inhouse-fact">
+        <div class="inhouse-fact-num">월간</div>
+        <div class="inhouse-fact-label">KPI 리뷰 & 전략 조정<br>성과 기반 파트너십</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES — 5 TYPES -->
+  <div class="grid-row">
+    <div class="cell col-2 cell-dark" style="padding:80px 56px;">
+      <div class="label-box" style="background:rgba(255,255,255,0.15); color:#fff; margin-bottom:32px;">5가지 핵심 서비스</div>
+      <h2 class="title-kr" style="margin-bottom:16px;">스타트업 성장 사이클<br>전체를 함께합니다.</h2>
+      <p class="body-text" style="margin-bottom:48px;">
+        생존 전략부터 글로벌 투자 유치, Exit까지. 각 단계에서 필요한 실행 파트너가 되겠습니다.
+      </p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">생존 전략</div>
+        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">투자·재무</div>
+        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">Exit·M&A</div>
+        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">IR·스토리텔링</div>
+        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">글로벌 네트워킹</div>
+      </div>
+    </div>
+
+    <div class="cell col-2" style="background:#fff; padding:60px 56px;">
+      <div class="svc-card">
+        <div class="svc-num">SERVICE 01</div>
+        <div class="svc-title">생존 전략 수립</div>
+        <div class="svc-body">현재 위기 상황을 객관적으로 진단하고 즉시 실행 가능한 액션 플랜을 수립합니다. KPI 설정, 리소스 최적화, Burn Rate 관리까지.</div>
+        <div class="svc-tags"><span class="svc-tag">위기 진단</span><span class="svc-tag">액션 플랜</span><span class="svc-tag">Burn Rate 관리</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">SERVICE 02</div>
+        <div class="svc-title">투자·재무 컨설팅</div>
+        <div class="svc-body">밸류에이션 설계, 재무 모델링, 투자자 매칭 및 네트워킹. 심사역 출신이 직접 검토하는 투자유치 전략.</div>
+        <div class="svc-tags"><span class="svc-tag">밸류에이션</span><span class="svc-tag">재무 모델링</span><span class="svc-tag">투자자 매칭</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">SERVICE 03</div>
+        <div class="svc-title">Exit · M&A 지원</div>
+        <div class="svc-body">전략적 Exit 및 M&A를 위한 전체 프로세스 지원. 잠재 바이어 발굴, 협상 지원, 기업가치 극대화 전략 설계.</div>
+        <div class="svc-tags"><span class="svc-tag">Exit 전략</span><span class="svc-tag">M&A 협상</span><span class="svc-tag">기업가치 극대화</span></div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">SERVICE 04</div>
+        <div class="svc-title">IR · 스토리텔링</div>
+        <div class="svc-body">투자자를 설득하는 피칭 덱, 임팩트 있는 스토리텔링, 피칭 트레이닝. 심사역이 실제로 반응하는 방식으로 재구성합니다.</div>
+        <div class="svc-tags"><span class="svc-tag">피칭 덱</span><span class="svc-tag">스토리텔링</span><span class="svc-tag">피칭 코칭</span></div>
+      </div>
+      <div class="svc-card" style="border-bottom:none;">
+        <div class="svc-num">SERVICE 05</div>
+        <div class="svc-title">글로벌 네트워킹 & 교육</div>
+        <div class="svc-body">글로벌 VC/AC 네트워크 연결, 전략적 파트너십 구축, 글로벌 진출 실무 교육, B2B 비즈니스 개발 지원.</div>
+        <div class="svc-tags"><span class="svc-tag">글로벌 VC/AC</span><span class="svc-tag">B2B 개발</span><span class="svc-tag">파트너십</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS — 3 STEPS -->
+  <div class="grid-row" style="background:rgba(247,249,251,0.8);">
+    <div class="cell col-1" style="padding:64px 56px; border-right:none;">
+      <div class="label-box">파트너십 진행 절차 (HOW IT WORKS)</div>
+      <h2 class="title-kr" style="margin-bottom:48px;">3단계로 시작합니다.<br>첫 진단은 무료입니다.</h2>
+      <div class="process-row">
+        <div class="process-step">
+          <div class="step-num">01</div>
+          <div class="step-badge">
+            <span style="width:6px; height:6px; background:var(--accent-gold); border-radius:50%;"></span>
+            STEP ONE
+          </div>
+          <div class="step-title">간단한 문의 접수</div>
+          <div class="step-body">기업 현황(IR 자료)과 주요 이슈를 공유해 주십시오. 라운드 현황, 핵심 과제, 원하시는 방향 등을 가볍게 남겨주시면 됩니다.</div>
+          <div class="step-tag">오른쪽 폼 또는 하단 버튼</div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02</div>
+          <div class="step-badge">
+            <span style="width:6px; height:6px; background:var(--accent-gold); border-radius:50%;"></span>
+            STEP TWO
+          </div>
+          <div class="step-title">무료 심층 진단 세션</div>
+          <div class="step-body">1회 무료 심층 진단 컨설팅을 진행합니다. 현재 구조의 문제점, 투자 가능성, 우선순위 과제를 함께 파악합니다.</div>
+          <div class="step-tag" style="background:var(--text-900);">완전 무료 · 비밀 유지</div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03</div>
+          <div class="step-badge">
+            <span style="width:6px; height:6px; background:var(--accent-gold); border-radius:50%;"></span>
+            STEP THREE
+          </div>
+          <div class="step-title">맞춤형 제안 및 파트너십 계약</div>
+          <div class="step-body">기업 상황에 최적화된 인하우스 파트너십 솔루션을 제안드립니다. 이후 실행 파트너로 함께 움직입니다.</div>
+          <div class="step-tag">성과 기반 파트너십 모델</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA SECTION -->
+  <div class="grid-row">
+    <div class="cell col-2" style="background:#fff; padding:80px 64px;">
+      <div class="label-box">프라이빗 의뢰</div>
+      <h2 class="title-kr" style="margin-bottom:28px; font-size:30px;">지금 직면한 과제를<br>비공개로 남겨 주십시오.</h2>
+      <p class="body-text" style="margin-bottom:40px;">
+        형식적인 미팅은 없습니다. IR 자료와 현재 상황을 간략히 남겨주시면 — 조용히 검토하고, 가장 확실한 구조로 답하겠습니다.<br><br>
+        <b>첫 번째 진단 세션은 완전 무료입니다.</b>
+      </p>
+
+      <div class="fp-row">
+        <div class="fp-check"></div>
+        <div>
+          <div class="fp-title">투자유치 구조 진단 & IR 재설계</div>
+          <div class="fp-sub">심사역 관점에서 무엇이 문제인지 정확히 짚어드립니다.</div>
+        </div>
+      </div>
+      <div class="fp-row">
+        <div class="fp-check"></div>
+        <div>
+          <div class="fp-title">성장 정체 진단 & 생존 전략 수립</div>
+          <div class="fp-sub">시리즈 A/B 이후 정체된 상황을 타개할 실행 플랜을 함께 설계합니다.</div>
+        </div>
+      </div>
+      <div class="fp-row">
+        <div class="fp-check"></div>
+        <div>
+          <div class="fp-title">Exit · M&A · 글로벌 진출 전략</div>
+          <div class="fp-sub">다음 단계의 로드맵과 글로벌 투자자 연결까지 포괄적으로 지원합니다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cell col-2" style="padding:0; background:rgba(247,249,251,0.6); display:flex; flex-direction:column;">
+      <div style="padding:64px 56px; flex:1;">
+        <p style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:800; letter-spacing:2px; color:var(--accent-gold); margin-bottom:20px;">FREE FIRST SESSION</p>
+        <h3 style="font-size:22px; font-weight:800; color:var(--text-900); margin-bottom:16px; line-height:1.4; letter-spacing:-0.5px; word-break:keep-all;">
+          지금 이 상황이 해결될 수 있는지<br>먼저 확인해 드립니다.
+        </h3>
+        <p style="font-size:14.5px; color:var(--text-700); line-height:1.7; font-weight:500; margin-bottom:40px; word-break:keep-all;">
+          1회 무료 심층 진단 세션에서 현재 구조의 문제, 투자 가능성, 우선 과제를 함께 파악합니다. 의무나 비용 없이 시작할 수 있습니다.
+        </p>
+        <div style="background:rgba(19,34,56,0.04); border:1px solid rgba(19,34,56,0.1); padding:24px; margin-bottom:0;">
+          <div style="font-size:12px; font-weight:800; color:var(--text-500); letter-spacing:1px; margin-bottom:12px;">현재 이런 상황이라면 적합합니다</div>
+          <div style="font-size:14px; color:var(--text-700); line-height:1.8; font-weight:500;">
+            ✓ 시리즈 A~B 이후 성장이 정체된 기업<br>
+            ✓ 투자자 미팅이 있는데 계속 거절당하는 기업<br>
+            ✓ 다음 라운드 준비가 막막한 기업<br>
+            ✓ 글로벌 진출을 준비 중인 기업<br>
+            ✓ Exit 또는 M&A를 검토 중인 기업
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-wrapper" style="padding:0; border-top:var(--border-line);">
+        <button onclick="openModal('tally')" class="btn-massive-gold">
+          <span>무료 진단 세션 신청하기</span>
+          <span>➔</span>
+        </button>
+        <button onclick="openModal('tally')" class="btn-massive">
+          <span>비공개로 과제 남겨두기</span>
+          <span>➔</span>
+        </button>
+        <button onclick="openModal('profile')" class="btn-secondary">
+          <span>파트너 이력 및 레퍼런스 확인</span>
+          <span>➔</span>
+        </button>
+      </div>
+
+      <div style="background:var(--text-900); padding:14px 56px; text-align:center;">
+        <p style="font-size:12.5px; color:rgba(255,255,255,0.75); margin:0; font-family:'Pretendard',sans-serif;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-top:-2px; margin-right:4px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          제출된 모든 정보는 기밀 유지(NDA) 기준에 따라 안전하게 관리됩니다.
+        </p>
+      </div>
+
+      <div style="padding:24px 56px; background:rgba(19,34,56,0.04);">
+        <p style="font-size:13px; color:var(--text-700); line-height:1.65; margin:0;">
+          <b>P.S.</b> 투자 협상에서 결국 승패를 가르는 것은 숫자가 아니라 사람입니다. 폼을 남기시면서 대표님 또는 핵심 팀원의 기초 정보(생년월일 등)를 함께 남겨주시면 — 상대 투자자의 의사결정 패턴과 협상 스타일을 꿰뚫는 <b>『Deep-Insight 리포트』</b>를 은밀히 드립니다.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="grid-row" style="padding:48px; border-bottom:none; background:#fff;">
+    <div style="display:flex; justify-content:space-between; align-items:center; width:100%; flex-wrap:wrap; gap:24px;">
+      <div style="display:flex; align-items:center; font-family:'Montserrat',sans-serif; font-weight:900; font-size:15px; letter-spacing:1px; color:var(--text-900);">
+        <div class="nav-sq">EP</div>
+        ENTROPRO
+        <span style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; color:var(--accent-gold); margin-left:12px; letter-spacing:2px;">RESTRUCTURE · RECOVER · RETURN</span>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:12px; color:var(--text-500); font-family:'Montserrat',sans-serif; font-weight:700; letter-spacing:0.5px;">
+          ENTROPROKR@GMAIL.COM &nbsp;&nbsp;|&nbsp;&nbsp; © 2026 ENTROPRO. ALL RIGHTS RESERVED.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- FLOATING CTA -->
+<div class="floating-cta" id="floatingCta">
+  <div class="fc-header">
+    <div style="font-family:'Pretendard',sans-serif; font-size:11px; font-weight:800; letter-spacing:1px;">스타트업 구조대</div>
+    <div style="cursor:pointer; opacity:0.7;" onclick="document.getElementById('floatingCta').style.display='none'">✕</div>
+  </div>
+  <div class="fc-body">
+    <p style="font-size:11px; font-weight:800; letter-spacing:1.5px; color:var(--accent-gold); font-family:'Montserrat',sans-serif; margin-bottom:10px;">FREE FIRST SESSION</p>
+    <h3 style="font-size:15px; font-weight:800; color:var(--text-900); margin-bottom:6px; line-height:1.4; letter-spacing:-0.3px;">1회 무료 진단으로<br>해결 가능한지 먼저 확인하세요.</h3>
+    <p style="font-size:12.5px; color:var(--text-500); margin-bottom:0; font-weight:500;">의무·비용 없이 시작할 수 있습니다.</p>
+    <button onclick="openModal('tally')" class="fc-btn">무료 진단 신청하기 ➔</button>
+    <button onclick="openModal('profile')" class="fc-btn-sub">파트너 이력 보기</button>
+  </div>
+</div>
+
+<!-- UNIFIED MODAL -->
+<div id="unifiedModal" class="modal-overlay">
+  <div class="modal-container">
+    <div class="modal-header">
+      <div class="modal-tabs">
+        <button id="btn-tab-profile" class="tab-btn" onclick="showTab('profile')">대표 파트너 이력</button>
+        <button id="btn-tab-tally" class="tab-btn" onclick="showTab('tally')">무료 진단 · 과제 의뢰</button>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- PROFILE TAB -->
+      <div id="tab-profile" class="tab-content">
+        <div class="cv-header">
+          <div class="cv-title">전 세 훈 (Sehoon Jeon)</div>
+          <div class="cv-sub">비즈니스 엔지니어 · 스타트업 구조대 대표 파트너<br>딥테크(석유화학/2차전지) 전문가 · 전직 수석심사역</div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-sec-title">왜 이 파트너인가</div>
+          <p style="font-size:15px; color:var(--text-700); line-height:1.75; margin-bottom:28px; word-break:keep-all; font-weight:500;">
+            스타트업 구조대의 핵심은 단 하나입니다. <b style="color:var(--text-900);">투자를 집행했던 사람이, 이제 대표님 편에 서 있다는 것</b>. 대림그룹 CVC에서 642억을 직접 집행하고, VC 수석심사역으로 딜을 검토했으며, AC에서 스타트업을 직접 투자·보육한 전주기 실전 경험을 갖추고 있습니다.
+          </p>
+          <div style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:8px;">
+            <div style="flex:1; min-width:160px; background:#F4F6F9; padding:20px; border:1px solid var(--border-light);">
+              <div style="font-family:'Montserrat',sans-serif; font-size:26px; font-weight:900; color:var(--accent-gold); margin-bottom:6px;">650억+</div>
+              <div style="font-size:12px; font-weight:700; color:var(--text-900);">직접 집행 투자 규모<br><span style="color:var(--text-500); font-weight:500;">(CVC/VC/AC)</span></div>
+            </div>
+            <div style="flex:1; min-width:160px; background:#F4F6F9; padding:20px; border:1px solid var(--border-light);">
+              <div style="font-family:'Montserrat',sans-serif; font-size:26px; font-weight:900; color:var(--accent-gold); margin-bottom:6px;">13건</div>
+              <div style="font-size:12px; font-weight:700; color:var(--text-900);">투자·M&A 실행<br><span style="color:var(--text-500); font-weight:500;">(전략투자·구주·LP)</span></div>
+            </div>
+            <div style="flex:1; min-width:160px; background:#F4F6F9; padding:20px; border:1px solid var(--border-light);">
+              <div style="font-family:'Montserrat',sans-serif; font-size:26px; font-weight:900; color:var(--accent-gold); margin-bottom:6px;">20+</div>
+              <div style="font-size:12px; font-weight:700; color:var(--text-900);">정부·공공기관 심사위원<br><span style="color:var(--text-500); font-weight:500;">(2021~현재)</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-sec-title">주요 경력 (투자 전주기)</div>
+          <div class="cv-tl-item">
+            <div class="cv-tl-year">2025.07 – 현재</div>
+            <div class="cv-tl-body">
+              <div class="cv-corp">엔트로프로 (ENTROPRO)</div>
+              <div class="cv-role">대표 파트너 | Business Engineer · 스타트업 구조대</div>
+              <div class="cv-desc">투자유치 구조 설계, IR 덱 엔지니어링, 투자자 매칭, Exit·M&A 지원, 스케일업 자문. 인하우스 파트너십 모델로 스타트업과 함께 실행</div>
+            </div>
+          </div>
+          <div class="cv-tl-item">
+            <div class="cv-tl-year">2024.01 – 현재</div>
+            <div class="cv-tl-body">
+              <div class="cv-corp">더이노베이터스 / 2080벤처스코리아 (AC)</div>
+              <div class="cv-role">이사 | BA부문 투자심사 · 창업보육</div>
+              <div class="cv-desc">유망 스타트업 발굴, 투자 집행, TIPS 추천 및 후속 투자 연계 지원</div>
+            </div>
+          </div>
+          <div class="cv-tl-item">
+            <div class="cv-tl-year">2023.01 – 2023.12</div>
+            <div class="cv-tl-body">
+              <div class="cv-corp">한양대학교 기술지주 (AC)</div>
+              <div class="cv-role">투자팀 이사 | Accelerator</div>
+              <div class="cv-desc">시드 투자 집행 및 TIPS 추천 (판도플랫폼, 비엘에프, 월더). 강원도 데이터 창업·벤처 육성사업 수주</div>
+            </div>
+          </div>
+          <div class="cv-tl-item">
+            <div class="cv-tl-year">2021.10 – 2022.12</div>
+            <div class="cv-tl-body">
+              <div class="cv-corp">로이투자파트너스 (VC)</div>
+              <div class="cv-role">수석심사역 | Venture Capital</div>
+              <div class="cv-desc">소부장(반도체/2차전지) 딥테크 기업 재무·사업·기술 실사(Tech DD). 펀드 결성을 위한 LP 대상 IR 수행</div>
+            </div>
+          </div>
+          <div class="cv-tl-item">
+            <div class="cv-tl-year">2015.01 – 2021.08</div>
+            <div class="cv-tl-body">
+              <div class="cv-corp">대림 / DL그룹 (CVC)</div>
+              <div class="cv-role">전략기획실 투자팀 차장 | CVC & M&A</div>
+              <div class="cv-desc">그룹 CVC 운영 체계 구축 및 <b>642억 원 투자 집행</b>. 비상장주식 투자 9건, Exit 1건. 반도체 특수가스 신사업 상업화, 유럽 정밀화학사 M&A 검토</div>
+            </div>
+          </div>
+          <div class="cv-tl-item">
+            <div class="cv-tl-year">2008.03 – 2014.12</div>
+            <div class="cv-tl-body">
+              <div class="cv-corp">이수화학 / DL케미칼</div>
+              <div class="cv-role">사업기획팀 | 신사업 개발</div>
+              <div class="cv-desc">전자용 솔벤트 신사업 생산 시설 투자 및 상업화(연 50억 매출). 석유화학 글로벌 합작법인(JV) 타당성 분석</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <div class="cv-sec-title">학력 · 자격 · 강의 이력</div>
+          <ul style="list-style:none; font-size:14px; color:var(--text-900); font-weight:600; line-height:2;">
+            <li>• <span style="color:var(--text-500);">[학력]</span> 아주대학교 대학원 화학공학과 공학석사 / 아주대학교 화학공학과 공학사</li>
+            <li>• <span style="color:var(--text-500);">[자격]</span> 벤처캐피탈리스트 전문가 (한국벤처캐피탈협회), 고압가스 안전관리자, 정보처리기사</li>
+            <li>• <span style="color:var(--text-500);">[심사]</span> 창업진흥원·중소기업진흥공단·NIPA·서울창조경제혁신센터 외 20여개 기관 심사위원 (2021~현재)</li>
+            <li>• <span style="color:var(--text-500);">[강의]</span> 스타트업 투자유치 전략 강의 (서울경제진흥원, 샤오미AC, 대전창조경제혁신센터, 창업진흥원 등)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TALLY TAB -->
+      <div id="tab-tally" class="tab-content">
+        <div style="background:rgba(197,154,92,0.08); border:1px solid rgba(197,154,92,0.25); padding:20px 24px; margin-bottom:32px;">
+          <p style="font-size:13px; font-weight:700; color:var(--text-900); margin:0; line-height:1.6;">
+            💡 <b>첫 번째 진단 세션은 완전 무료입니다.</b> IR 자료 및 현재 상황을 간략히 남겨주시면, 검토 후 연락드립니다. 제출된 모든 정보는 NDA 기준으로 관리됩니다.
+          </p>
+        </div>
+        <iframe src="https://tally.so/embed/ODdNyp?hideTitle=1&transparentBackground=1" width="100%" height="860" frameborder="0" marginheight="0" marginwidth="0" title="ENTROPRO 스타트업 구조대 의뢰 폼"></iframe>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal(tabId) {
+  var modal = document.getElementById('unifiedModal');
+  modal.classList.add('show');
+  document.body.style.overflow = 'hidden';
+  showTab(tabId);
+}
+function closeModal() {
+  var modal = document.getElementById('unifiedModal');
+  modal.classList.remove('show');
+  document.body.style.overflow = 'auto';
+}
+function showTab(tabId) {
+  ['profile','tally'].forEach(function(id) {
+    document.getElementById('tab-' + id).classList.remove('active');
+    document.getElementById('btn-tab-' + id).classList.remove('active');
+  });
+  document.getElementById('tab-' + tabId).classList.add('active');
+  document.getElementById('btn-tab-' + tabId).classList.add('active');
+}
+window.onclick = function(event) {
+  var modal = document.getElementById('unifiedModal');
+  if (event.target == modal) closeModal();
+}
+</script>
+</body>
+</html>
