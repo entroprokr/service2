@@ -186,7 +186,7 @@ nav {
 .inhouse-quote em { color: var(--accent-gold); font-style: normal; }
 .inhouse-facts { display: flex; gap: 32px; flex-wrap: wrap; flex: 1; min-width: 220px; }
 .inhouse-fact { text-align: center; }
-.inhouse-fact-num { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 900; color: var(--accent-gold); }
+.inhouse-fact-num { font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 900; color: var(--accent-gold); }
 .inhouse-fact-label { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.7); margin-top: 4px; line-height: 1.4; }
 
 /* ── GLOBAL STRIP ── */
@@ -331,22 +331,20 @@ nav {
 
 <div class="global-overlay"></div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <div class="nav-brand">
-      <img src="logo.png" alt="ENTROPRO">
+      <img src="logo.png" alt="ENTROPRO" onerror="this.style.display='none'">
       ENTROPRO
       <span style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:700; color:var(--text-500); letter-spacing:0; margin-left:4px;">스타트업 구조대</span>
     </div>
     <div style="display:flex; align-items:center; gap:20px;">
-      <a onclick="openModal('profile')" class="nav-cv-link">파트너 이력 보기</a>
-      <button onclick="openModal('tally')" class="label-outline" style="cursor:pointer; border:none; background:var(--text-900); color:#fff; padding:8px 16px;">무료 진단 신청</button>
+      <a onclick="openModal('profile')" class="nav-cv-link">파트너 이력</a>
+      <button onclick="openModal('tally')" class="label-outline" style="cursor:pointer; border:none; background:var(--text-900); color:#fff; padding:8px 16px;">사전 진단 신청</button>
     </div>
   </div>
 </nav>
 
-<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-content">
     <span class="gold">RESTRUCTURE</span><span>·</span>
@@ -370,56 +368,50 @@ nav {
 
 <div class="container">
 
-  <!-- HERO -->
   <div class="grid-row hero-wrapper">
     <div class="cell col-1" style="border-right:none; border-bottom:none; padding-bottom:70px;">
       <div class="label-box">스타트업 구조대</div>
       <h1 class="text-huge" style="margin-bottom:24px;">RESTRUCTURE<br>RECOVER<br>RETURN.</h1>
       <p class="title-kr" style="margin-bottom:40px; max-width:800px;">
-        잠재력은 있지만 성장이 정체된 스타트업에게,<br>
-        글로벌 무대로 도약할 실행 파트너가 합류합니다.
+        성장의 한계에 부딪힌 스타트업을 위해,<br>
+        실전 검증된 비즈니스 엔지니어가 합류합니다.
       </p>
       <p class="body-text" style="max-width:760px; font-size:17px;">
-        시리즈 A, B 이후 성장이 멈췄습니까? 투자가 끊겼습니까?<br>
-        단순한 자문사가 아닙니다. <b>주 2~3회 직접 현장에 참여하는 인하우스 파트너</b>로서,<br>
-        650억 원 이상의 투자를 집행해온 심사역 출신이 이번엔 대표님 편에 섭니다.<br><br>
-        구조를 재설계하고, 투자자를 연결하고, 글로벌 무대로 함께 나아갑니다.
+        다음 단계가 보이지 않는다면, 문제는 아이디어가 아니라 '구조'입니다.<br>
+        단순한 훈수나 자문이 아닙니다. <b>상황에 맞게 현장에 투입되어 막힌 병목을 직접 뚫어냅니다.</b><br>
+        650억 원을 직접 투자해 본 감각으로 회사의 뼈대를 다시 짜고, 최적의 투자자를 연결해 다음 라운드를 완성합니다.
       </p>
     </div>
 
-    <!-- HERO STATS — ENTROPRO TRACK RECORD -->
     <div class="hero-stat-bar">
       <div class="hero-stat">
         <div class="stat-num">650억+</div>
-        <div class="stat-label">직접 집행한 투자 규모<br><span style="font-weight:500; color:var(--text-500);">심사역 관점에서 IR을 봅니다</span></div>
+        <div class="stat-label">직접 집행한 투자 규모<br><span style="font-weight:500; color:var(--text-500);">심사역의 시선으로 투자를 재설계합니다.</span></div>
       </div>
       <div class="hero-stat">
         <div class="stat-num">13건</div>
-        <div class="stat-label">투자·M&A 직접 실행 경험<br><span style="font-weight:500; color:var(--text-500);">(전략투자 · 구주 · LP 출자)</span></div>
+        <div class="stat-label">투자 및 M&A 직접 실행<br><span style="font-weight:500; color:var(--text-500);">(전략 투자, 구주 매각, 펀드 출자)</span></div>
       </div>
       <div class="hero-stat">
         <div class="stat-num">16년+</div>
-        <div class="stat-label">제조 현장 → CVC → VC → AC<br><span style="font-weight:500; color:var(--text-500);">투자 전주기 실전 경험</span></div>
+        <div class="stat-label">제조 현장부터 투자사까지<br><span style="font-weight:500; color:var(--text-500);">투자 전주기를 꿰뚫는 실전 경험</span></div>
       </div>
     </div>
   </div>
 
-  <!-- TRACK RECORD BAND -->
   <div class="track-record-band">
     주요 실무 거점 :
-    <span>대림 (DL그룹) CVC</span> •
-    <span>로이투자파트너스 VC</span> •
-    <span>한양대 기술지주 AC</span> •
-    <span>더이노베이터스 AC</span>
+    <span>대림그룹 투자팀</span> •
+    <span>로이투자파트너스 (VC)</span> •
+    <span>한양대 기술지주 (AC)</span> 
   </div>
 
-  <!-- CRISIS SECTION — DARK with stats -->
   <div class="grid-row">
     <div class="cell col-1 cell-dark" style="padding-bottom:0;">
-      <div class="label-box" style="background:rgba(255,255,255,0.15); color:#fff;">한국 스타트업의 현실 (THE REALITY)</div>
-      <h2 class="title-kr" style="margin-bottom:16px; max-width:700px;">좋은 아이디어만으로는 살아남을 수 없습니다.</h2>
+      <div class="label-box" style="background:rgba(255,255,255,0.15); color:#fff;">성장의 병목</div>
+      <h2 class="title-kr" style="margin-bottom:16px; max-width:700px;">구조가 잡히지 않으면, 다음 라운드는 없습니다.</h2>
       <p class="body-text" style="max-width:680px; margin-bottom:0;">
-        글로벌 투자 축소와 국내 시장 냉각이 겹치면서, 스타트업의 생존 방정식이 근본적으로 바뀌었습니다. 시리즈 A·B를 받았어도 다음 단계로 나아가지 못하는 기업이 급증하고 있습니다.
+        무작정 덩치만 키우는 시대는 끝났습니다. 생존과 도약을 가르는 것은 재무, 운영, 그리고 투자자 설득 논리의 정교한 균형입니다.
       </p>
       <div class="crisis-grid">
         <div class="crisis-card">
@@ -428,223 +420,217 @@ nav {
         </div>
         <div class="crisis-card">
           <div class="crisis-num">58<span style="font-size:28px;">%</span></div>
-          <div class="crisis-sub">시리즈 A 이후<br>성장 정체율</div>
+          <div class="crisis-sub">첫 투자 후<br>성장 정체율</div>
         </div>
         <div class="crisis-card">
           <div class="crisis-num">70<span style="font-size:28px;">%</span></div>
-          <div class="crisis-sub">재무·운영·HR<br>전문성 부족</div>
+          <div class="crisis-sub">재무 및 운영<br>구조화 부족</div>
         </div>
         <div class="crisis-card">
           <div class="crisis-num">83<span style="font-size:28px;">%</span></div>
-          <div class="crisis-sub">글로벌 진출<br>어려움 직면</div>
+          <div class="crisis-sub">해외 확장 시<br>겪는 한계</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- GLOBAL OPPORTUNITY STRIP -->
   <div class="grid-row" style="background:#fff;">
     <div style="flex:1; padding:40px 64px; border-bottom:var(--border-line);">
       <div style="display:flex; align-items:center; gap:16px; margin-bottom:8px;">
-        <div class="label-box" style="margin-bottom:0; background:var(--accent-gold);">글로벌 기회 (GLOBAL UPSIDE)</div>
+        <div class="label-box" style="margin-bottom:0; background:var(--accent-gold);">돌파구</div>
       </div>
       <p style="font-size:15px; color:var(--text-700); font-weight:500; word-break:keep-all;">
-        위기의 반대편에는 기회가 있습니다. 해외 투자자들의 한국 스타트업 관심이 증가하는 지금, 올바른 구조를 갖춘 기업에게는 전례 없는 도약의 창이 열려 있습니다.
+        본질적인 구조를 단단하게 잡은 기업에게는 언제나 기회가 열려 있습니다. 정확한 핏(Fit)의 투자자를 매칭하고, 성장의 문을 엽니다.
       </p>
     </div>
     <div class="global-stat-row" style="flex:1; border-bottom:var(--border-line);">
       <div class="global-stat-cell">
         <div class="gstat-num">75<span style="font-size:32px; font-weight:900;">%</span></div>
-        <div class="gstat-label">글로벌 확장 시<br>기업가치 상승률</div>
+        <div class="gstat-label">해외 확장 시<br>기업 가치 상승률</div>
         <div class="gstat-sub">글로벌 진출 성공 기업 평균</div>
       </div>
       <div class="global-stat-cell">
         <div class="gstat-num">3<span style="font-size:32px; font-weight:900;">배</span></div>
-        <div class="gstat-label">글로벌 진출 기업의<br>후속 투자 확률</div>
-        <div class="gstat-sub">국내 유사 스테이지 대비</div>
+        <div class="gstat-label">해외 진출 기업의<br>후속 투자 확률</div>
+        <div class="gstat-sub">국내 한정 기업 대비</div>
       </div>
     </div>
   </div>
 
-  <!-- INHOUSE MODEL BAND -->
   <div class="inhouse-band" style="border-bottom:var(--border-line);">
     <div class="inhouse-quote">
-      단순한 자문사가 아닙니다.<br>
-      <em>팀원처럼 함께 실행하는</em><br>
-      인하우스 파트너입니다.
+      말뿐인 훈수가 아닙니다.<br>
+      <em>현장의 문제를 직접 뚫어내는</em><br>
+      실전 파트너십입니다.
     </div>
     <div class="inhouse-facts">
       <div class="inhouse-fact">
-        <div class="inhouse-fact-num">주 2~3회</div>
-        <div class="inhouse-fact-label">현장 직접 참여<br>상주형 실행 지원</div>
+        <div class="inhouse-fact-num">상황 맞춤형</div>
+        <div class="inhouse-fact-label">회사의 필요에 맞춘<br>유연한 현장 투입</div>
       </div>
       <div class="inhouse-fact">
-        <div class="inhouse-fact-num">1:1</div>
-        <div class="inhouse-fact-label">전담 파트너 배정<br>밀착 협업 구조</div>
+        <div class="inhouse-fact-num">1:1 전담</div>
+        <div class="inhouse-fact-label">대표님과 직접 소통하는<br>밀착 협업</div>
       </div>
       <div class="inhouse-fact">
-        <div class="inhouse-fact-num">월간</div>
-        <div class="inhouse-fact-label">KPI 리뷰 & 전략 조정<br>성과 기반 파트너십</div>
+        <div class="inhouse-fact-num">정기 점검</div>
+        <div class="inhouse-fact-label">매월 핵심 목표 점검 및<br>성과 기반 파트너십</div>
       </div>
     </div>
   </div>
 
-  <!-- SERVICES — 5 TYPES -->
   <div class="grid-row">
     <div class="cell col-2 cell-dark" style="padding:80px 56px;">
-      <div class="label-box" style="background:rgba(255,255,255,0.15); color:#fff; margin-bottom:32px;">5가지 핵심 서비스</div>
-      <h2 class="title-kr" style="margin-bottom:16px;">스타트업 성장 사이클<br>전체를 함께합니다.</h2>
+      <div class="label-box" style="background:rgba(255,255,255,0.15); color:#fff; margin-bottom:32px;">5가지 핵심 전문성</div>
+      <h2 class="title-kr" style="margin-bottom:16px;">스타트업 성장의 모든 병목을 해결합니다.</h2>
       <p class="body-text" style="margin-bottom:48px;">
-        생존 전략부터 글로벌 투자 유치, Exit까지. 각 단계에서 필요한 실행 파트너가 되겠습니다.
+        위기 진단부터 글로벌 투자 유치, 기업 매각까지. 실전에서 검증된 감각으로 최적의 솔루션을 적용합니다.
       </p>
       <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">생존 전략</div>
-        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">투자·재무</div>
-        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">Exit·M&A</div>
-        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">IR·스토리텔링</div>
-        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">글로벌 네트워킹</div>
+        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">위기 진단</div>
+        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">재무 기획</div>
+        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">M&A 전략</div>
+        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">IR 재설계</div>
+        <div style="background:rgba(197,154,92,0.2); border:1px solid rgba(197,154,92,0.4); padding:10px 16px; font-size:12px; font-weight:700; color:var(--accent-gold); letter-spacing:0.5px;">해외 진출</div>
       </div>
     </div>
 
     <div class="cell col-2" style="background:#fff; padding:60px 56px;">
       <div class="svc-card">
         <div class="svc-num">SERVICE 01</div>
-        <div class="svc-title">생존 전략 수립</div>
-        <div class="svc-body">현재 위기 상황을 객관적으로 진단하고 즉시 실행 가능한 액션 플랜을 수립합니다. KPI 설정, 리소스 최적화, Burn Rate 관리까지.</div>
-        <div class="svc-tags"><span class="svc-tag">위기 진단</span><span class="svc-tag">액션 플랜</span><span class="svc-tag">Burn Rate 관리</span></div>
+        <div class="svc-title">사업 구조 진단 및 재설계</div>
+        <div class="svc-body">낭비되는 리소스를 최적화하고 당장 실행 가능한 지출 관리(Burn Rate)와 효율화 계획을 세웁니다.</div>
+        <div class="svc-tags"><span class="svc-tag">효율 개선</span><span class="svc-tag">지출 관리</span></div>
       </div>
       <div class="svc-card">
         <div class="svc-num">SERVICE 02</div>
-        <div class="svc-title">투자·재무 컨설팅</div>
-        <div class="svc-body">밸류에이션 설계, 재무 모델링, 투자자 매칭 및 네트워킹. 심사역 출신이 직접 검토하는 투자유치 전략.</div>
-        <div class="svc-tags"><span class="svc-tag">밸류에이션</span><span class="svc-tag">재무 모델링</span><span class="svc-tag">투자자 매칭</span></div>
+        <div class="svc-title">투자 및 재무 기획</div>
+        <div class="svc-body">회사 가치를 평가하고, 탄탄한 재무 계획을 바탕으로 가장 적합한 투자자를 연결합니다.</div>
+        <div class="svc-tags"><span class="svc-tag">가치 평가</span><span class="svc-tag">투자자 매칭</span></div>
       </div>
       <div class="svc-card">
         <div class="svc-num">SERVICE 03</div>
-        <div class="svc-title">Exit · M&A 지원</div>
-        <div class="svc-body">전략적 Exit 및 M&A를 위한 전체 프로세스 지원. 잠재 바이어 발굴, 협상 지원, 기업가치 극대화 전략 설계.</div>
-        <div class="svc-tags"><span class="svc-tag">Exit 전략</span><span class="svc-tag">M&A 협상</span><span class="svc-tag">기업가치 극대화</span></div>
+        <div class="svc-title">기업 매각(M&A) 전략</div>
+        <div class="svc-body">성공적인 매각을 위한 밑그림을 그립니다. 인수자 발굴부터 협상까지 기업 가치를 극대화합니다.</div>
+        <div class="svc-tags"><span class="svc-tag">매각 계획</span><span class="svc-tag">가치 극대화</span></div>
       </div>
       <div class="svc-card">
         <div class="svc-num">SERVICE 04</div>
-        <div class="svc-title">IR · 스토리텔링</div>
-        <div class="svc-body">투자자를 설득하는 피칭 덱, 임팩트 있는 스토리텔링, 피칭 트레이닝. 심사역이 실제로 반응하는 방식으로 재구성합니다.</div>
-        <div class="svc-tags"><span class="svc-tag">피칭 덱</span><span class="svc-tag">스토리텔링</span><span class="svc-tag">피칭 코칭</span></div>
+        <div class="svc-title">투자 제안서(IR) 재설계</div>
+        <div class="svc-body">투자자의 눈길을 사로잡는 스토리로 바꿉니다. 본질은 지키되 시장이 반응하는 언어로 재구성합니다.</div>
+        <div class="svc-tags"><span class="svc-tag">스토리텔링</span><span class="svc-tag">핵심 전달</span></div>
       </div>
       <div class="svc-card" style="border-bottom:none;">
         <div class="svc-num">SERVICE 05</div>
-        <div class="svc-title">글로벌 네트워킹 & 교육</div>
-        <div class="svc-body">글로벌 VC/AC 네트워크 연결, 전략적 파트너십 구축, 글로벌 진출 실무 교육, B2B 비즈니스 개발 지원.</div>
-        <div class="svc-tags"><span class="svc-tag">글로벌 VC/AC</span><span class="svc-tag">B2B 개발</span><span class="svc-tag">파트너십</span></div>
+        <div class="svc-title">해외 진출 및 파트너십</div>
+        <div class="svc-body">해외 투자사와 연결하고, 글로벌 파트너십을 구축하여 새로운 판로를 엽니다.</div>
+        <div class="svc-tags"><span class="svc-tag">글로벌 투자</span><span class="svc-tag">판로 개척</span></div>
       </div>
     </div>
   </div>
 
-  <!-- PROCESS — 3 STEPS -->
   <div class="grid-row" style="background:rgba(247,249,251,0.8);">
     <div class="cell col-1" style="padding:64px 56px; border-right:none;">
-      <div class="label-box">파트너십 진행 절차 (HOW IT WORKS)</div>
-      <h2 class="title-kr" style="margin-bottom:48px;">3단계로 시작합니다.<br>첫 진단은 무료입니다.</h2>
+      <div class="label-box">초대와 검증 절차</div>
+      <h2 class="title-kr" style="margin-bottom:48px;">상호 시너지를 확인하는<br>3단계 과정.</h2>
       <div class="process-row">
         <div class="process-step">
           <div class="step-num">01</div>
           <div class="step-badge">
             <span style="width:6px; height:6px; background:var(--accent-gold); border-radius:50%;"></span>
-            STEP ONE
+            사전 의뢰
           </div>
-          <div class="step-title">간단한 문의 접수</div>
-          <div class="step-body">기업 현황(IR 자료)과 주요 이슈를 공유해 주십시오. 라운드 현황, 핵심 과제, 원하시는 방향 등을 가볍게 남겨주시면 됩니다.</div>
-          <div class="step-tag">오른쪽 폼 또는 하단 버튼</div>
+          <div class="step-title">온라인 검토 요청</div>
+          <div class="step-body">회사 소개서와 현재 가장 큰 고민을 남겨주십시오. 당장 해결해야 할 병목 현상을 간단히 적어주시면 됩니다.</div>
+          <div class="step-tag">오른쪽 양식 또는 하단 버튼</div>
         </div>
         <div class="process-step">
           <div class="step-num">02</div>
           <div class="step-badge">
             <span style="width:6px; height:6px; background:var(--accent-gold); border-radius:50%;"></span>
-            STEP TWO
+            심층 진단
           </div>
-          <div class="step-title">무료 심층 진단 세션</div>
-          <div class="step-body">1회 무료 심층 진단 컨설팅을 진행합니다. 현재 구조의 문제점, 투자 가능성, 우선순위 과제를 함께 파악합니다.</div>
-          <div class="step-tag" style="background:var(--text-900);">완전 무료 · 비밀 유지</div>
+          <div class="step-title">상호 핏(Fit) 점검</div>
+          <div class="step-body">상호 시너지가 예상될 경우, 1회 무료 진단을 진행합니다. 회사의 진짜 문제를 짚고 서로의 결이 맞는지 확인합니다.</div>
+          <div class="step-tag" style="background:var(--text-900);">엄격한 비밀 유지</div>
         </div>
         <div class="process-step">
           <div class="step-num">03</div>
           <div class="step-badge">
             <span style="width:6px; height:6px; background:var(--accent-gold); border-radius:50%;"></span>
-            STEP THREE
+            파트너십
           </div>
-          <div class="step-title">맞춤형 제안 및 파트너십 계약</div>
-          <div class="step-body">기업 상황에 최적화된 인하우스 파트너십 솔루션을 제안드립니다. 이후 실행 파트너로 함께 움직입니다.</div>
-          <div class="step-tag">성과 기반 파트너십 모델</div>
+          <div class="step-title">실행 합류</div>
+          <div class="step-body">확신이 들면 맞춤형 협업 방식을 제안합니다. 그 후에는 회사 내부 팀원처럼 함께 움직입니다.</div>
+          <div class="step-tag">성과 기반 모델</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- CTA SECTION -->
   <div class="grid-row">
     <div class="cell col-2" style="background:#fff; padding:80px 64px;">
       <div class="label-box">프라이빗 의뢰</div>
-      <h2 class="title-kr" style="margin-bottom:28px; font-size:30px;">지금 직면한 과제를<br>비공개로 남겨 주십시오.</h2>
+      <h2 class="title-kr" style="margin-bottom:28px; font-size:30px;">조용히 검토하고,<br>확실한 구조로 답합니다.</h2>
       <p class="body-text" style="margin-bottom:40px;">
-        형식적인 미팅은 없습니다. IR 자료와 현재 상황을 간략히 남겨주시면 — 조용히 검토하고, 가장 확실한 구조로 답하겠습니다.<br><br>
-        <b>첫 번째 진단 세션은 완전 무료입니다.</b>
+        형식적인 미팅은 서로의 에너지를 낭비할 뿐입니다. 소개서와 고민을 남겨주시면 — 예리한 시선으로 검토 후 회신드리겠습니다.<br><br>
+        <b>첫 번째 핏(Fit) 점검은 상호 탐색을 위한 무료 세션입니다.</b>
       </p>
 
       <div class="fp-row">
         <div class="fp-check"></div>
         <div>
-          <div class="fp-title">투자유치 구조 진단 & IR 재설계</div>
-          <div class="fp-sub">심사역 관점에서 무엇이 문제인지 정확히 짚어드립니다.</div>
+          <div class="fp-title">투자 유치 구조 진단 & 제안서 재설계</div>
+          <div class="fp-sub">심사역 관점에서 무엇이 병목인지 짚어드립니다.</div>
         </div>
       </div>
       <div class="fp-row">
         <div class="fp-check"></div>
         <div>
-          <div class="fp-title">성장 정체 진단 & 생존 전략 수립</div>
-          <div class="fp-sub">시리즈 A/B 이후 정체된 상황을 타개할 실행 플랜을 함께 설계합니다.</div>
+          <div class="fp-title">성장 정체 진단 & 해결 전략</div>
+          <div class="fp-sub">꼬여버린 실타래를 풀고 다음 단계의 계획을 세웁니다.</div>
         </div>
       </div>
       <div class="fp-row">
         <div class="fp-check"></div>
         <div>
-          <div class="fp-title">Exit · M&A · 글로벌 진출 전략</div>
-          <div class="fp-sub">다음 단계의 로드맵과 글로벌 투자자 연결까지 포괄적으로 지원합니다.</div>
+          <div class="fp-title">기업 매각 & 해외 진출 타당성</div>
+          <div class="fp-sub">다음 라운드의 가능성과 최적의 타이밍을 평가합니다.</div>
         </div>
       </div>
     </div>
 
     <div class="cell col-2" style="padding:0; background:rgba(247,249,251,0.6); display:flex; flex-direction:column;">
       <div style="padding:64px 56px; flex:1;">
-        <p style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:800; letter-spacing:2px; color:var(--accent-gold); margin-bottom:20px;">FREE FIRST SESSION</p>
+        <p style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:800; letter-spacing:2px; color:var(--accent-gold); margin-bottom:20px;">FIT CHECK SESSION</p>
         <h3 style="font-size:22px; font-weight:800; color:var(--text-900); margin-bottom:16px; line-height:1.4; letter-spacing:-0.5px; word-break:keep-all;">
-          지금 이 상황이 해결될 수 있는지<br>먼저 확인해 드립니다.
+          우리가 시너지를 낼 수 있는지<br>먼저 점검합니다.
         </h3>
         <p style="font-size:14.5px; color:var(--text-700); line-height:1.7; font-weight:500; margin-bottom:40px; word-break:keep-all;">
-          1회 무료 심층 진단 세션에서 현재 구조의 문제, 투자 가능성, 우선 과제를 함께 파악합니다. 의무나 비용 없이 시작할 수 있습니다.
+          1회 심층 진단 세션을 통해 근본적인 문제를 짚어보고, 전략적 핏이 맞는지 부담 없이 확인하십시오.
         </p>
         <div style="background:rgba(19,34,56,0.04); border:1px solid rgba(19,34,56,0.1); padding:24px; margin-bottom:0;">
-          <div style="font-size:12px; font-weight:800; color:var(--text-500); letter-spacing:1px; margin-bottom:12px;">현재 이런 상황이라면 적합합니다</div>
+          <div style="font-size:12px; font-weight:800; color:var(--text-500); letter-spacing:1px; margin-bottom:12px;">이러한 기업에게 적합합니다</div>
           <div style="font-size:14px; color:var(--text-700); line-height:1.8; font-weight:500;">
-            ✓ 시리즈 A~B 이후 성장이 정체된 기업<br>
-            ✓ 투자자 미팅이 있는데 계속 거절당하는 기업<br>
-            ✓ 다음 라운드 준비가 막막한 기업<br>
-            ✓ 글로벌 진출을 준비 중인 기업<br>
-            ✓ Exit 또는 M&A를 검토 중인 기업
+            ✓ 비즈니스 뼈대의 재설계가 필요한 기업<br>
+            ✓ 단순 훈수가 아닌, 실전 파트너가 필요한 기업<br>
+            ✓ 설득 논리가 빈약해 다음 투자가 막막한 기업<br>
+            ✓ 매각이나 글로벌 진출의 객관적 검증이 필요한 기업
           </div>
         </div>
       </div>
 
       <div class="btn-wrapper" style="padding:0; border-top:var(--border-line);">
         <button onclick="openModal('tally')" class="btn-massive-gold">
-          <span>무료 진단 세션 신청하기</span>
+          <span>핏(Fit) 점검 세션 신청</span>
           <span>➔</span>
         </button>
         <button onclick="openModal('tally')" class="btn-massive">
-          <span>비공개로 과제 남겨두기</span>
+          <span>비공개 사전 의뢰</span>
           <span>➔</span>
         </button>
         <button onclick="openModal('profile')" class="btn-secondary">
-          <span>파트너 이력 및 레퍼런스 확인</span>
+          <span>대표 파트너 이력</span>
           <span>➔</span>
         </button>
       </div>
@@ -652,19 +638,18 @@ nav {
       <div style="background:var(--text-900); padding:14px 56px; text-align:center;">
         <p style="font-size:12.5px; color:rgba(255,255,255,0.75); margin:0; font-family:'Pretendard',sans-serif;">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-top:-2px; margin-right:4px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-          제출된 모든 정보는 기밀 유지(NDA) 기준에 따라 안전하게 관리됩니다.
+          제출된 모든 정보는 기밀 유지(NDA) 기준에 따라 관리됩니다.
         </p>
       </div>
 
       <div style="padding:24px 56px; background:rgba(19,34,56,0.04);">
         <p style="font-size:13px; color:var(--text-700); line-height:1.65; margin:0;">
-          <b>P.S.</b> 투자 협상에서 결국 승패를 가르는 것은 숫자가 아니라 사람입니다. 폼을 남기시면서 대표님 또는 핵심 팀원의 기초 정보(생년월일 등)를 함께 남겨주시면 — 상대 투자자의 의사결정 패턴과 협상 스타일을 꿰뚫는 <b>『Deep-Insight 리포트』</b>를 은밀히 드립니다.
+          <b>P.S.</b> 비즈니스 협상의 마지막 결정은 결국 '사람'이 합니다. 의사결정을 앞둔 핵심 관계자의 정보를 가볍게 남겨주시면, 조직 내 역학관계와 숨은 리스크를 꿰뚫는 분석 자료를 세션에서 조용히 전달해 드립니다.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER -->
   <footer class="grid-row" style="padding:48px; border-bottom:none; background:#fff;">
     <div style="display:flex; justify-content:space-between; align-items:center; width:100%; flex-wrap:wrap; gap:24px;">
       <div style="display:flex; align-items:center; font-family:'Montserrat',sans-serif; font-weight:900; font-size:15px; letter-spacing:1px; color:var(--text-900);">
@@ -682,102 +667,91 @@ nav {
 
 </div>
 
-<!-- FLOATING CTA -->
 <div class="floating-cta" id="floatingCta">
   <div class="fc-header">
     <div style="font-family:'Pretendard',sans-serif; font-size:11px; font-weight:800; letter-spacing:1px;">스타트업 구조대</div>
     <div style="cursor:pointer; opacity:0.7;" onclick="document.getElementById('floatingCta').style.display='none'">✕</div>
   </div>
   <div class="fc-body">
-    <p style="font-size:11px; font-weight:800; letter-spacing:1.5px; color:var(--accent-gold); font-family:'Montserrat',sans-serif; margin-bottom:10px;">FREE FIRST SESSION</p>
-    <h3 style="font-size:15px; font-weight:800; color:var(--text-900); margin-bottom:6px; line-height:1.4; letter-spacing:-0.3px;">1회 무료 진단으로<br>해결 가능한지 먼저 확인하세요.</h3>
-    <p style="font-size:12.5px; color:var(--text-500); margin-bottom:0; font-weight:500;">의무·비용 없이 시작할 수 있습니다.</p>
-    <button onclick="openModal('tally')" class="fc-btn">무료 진단 신청하기 ➔</button>
-    <button onclick="openModal('profile')" class="fc-btn-sub">파트너 이력 보기</button>
+    <p style="font-size:11px; font-weight:800; letter-spacing:1.5px; color:var(--accent-gold); font-family:'Montserrat',sans-serif; margin-bottom:10px;">FIT CHECK SESSION</p>
+    <h3 style="font-size:15px; font-weight:800; color:var(--text-900); margin-bottom:6px; line-height:1.4; letter-spacing:-0.3px;">시너지를 점검하는<br>무료 핏(Fit) 세션</h3>
+    <p style="font-size:12.5px; color:var(--text-500); margin-bottom:0; font-weight:500;">부담 없이 근본적인 문제를 짚어보십시오.</p>
+    <button onclick="openModal('tally')" class="fc-btn">사전 진단 신청 ➔</button>
+    <button onclick="openModal('profile')" class="fc-btn-sub">파트너 이력 확인</button>
   </div>
 </div>
 
-<!-- UNIFIED MODAL -->
 <div id="unifiedModal" class="modal-overlay">
   <div class="modal-container">
     <div class="modal-header">
       <div class="modal-tabs">
         <button id="btn-tab-profile" class="tab-btn" onclick="showTab('profile')">대표 파트너 이력</button>
-        <button id="btn-tab-tally" class="tab-btn" onclick="showTab('tally')">무료 진단 · 과제 의뢰</button>
+        <button id="btn-tab-tally" class="tab-btn" onclick="showTab('tally')">사전 진단 신청</button>
       </div>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
 
     <div class="modal-body">
 
-      <!-- PROFILE TAB -->
       <div id="tab-profile" class="tab-content">
         <div class="cv-header">
           <div class="cv-title">전 세 훈 (Sehoon Jeon)</div>
-          <div class="cv-sub">비즈니스 엔지니어 · 스타트업 구조대 대표 파트너<br>딥테크(석유화학/2차전지) 전문가 · 전직 수석심사역</div>
+          <div class="cv-sub">비즈니스 엔지니어 · ENTROPRO 대표 파트너<br>딥테크(소부장) 전문가 · 전직 수석심사역</div>
         </div>
 
         <div class="cv-section">
-          <div class="cv-sec-title">왜 이 파트너인가</div>
+          <div class="cv-sec-title">검증된 실전 경험</div>
           <p style="font-size:15px; color:var(--text-700); line-height:1.75; margin-bottom:28px; word-break:keep-all; font-weight:500;">
-            스타트업 구조대의 핵심은 단 하나입니다. <b style="color:var(--text-900);">투자를 집행했던 사람이, 이제 대표님 편에 서 있다는 것</b>. 대림그룹 CVC에서 642억을 직접 집행하고, VC 수석심사역으로 딜을 검토했으며, AC에서 스타트업을 직접 투자·보육한 전주기 실전 경험을 갖추고 있습니다.
+            핵심은 하나입니다. <b style="color:var(--text-900);">수백억의 자본을 집행하며 수많은 기업의 성공과 실패를 지켜본 감각이 귀사의 곁에 있다는 것.</b> 대기업 CVC에서 642억 원을 직접 투자하고, VC 수석심사역으로 수많은 딜을 검증했으며, 창업기획자로서 스타트업을 직접 육성한 투자 전주기의 경험을 귀사의 성장에 투입합니다.
           </p>
           <div style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:8px;">
             <div style="flex:1; min-width:160px; background:#F4F6F9; padding:20px; border:1px solid var(--border-light);">
               <div style="font-family:'Montserrat',sans-serif; font-size:26px; font-weight:900; color:var(--accent-gold); margin-bottom:6px;">650억+</div>
-              <div style="font-size:12px; font-weight:700; color:var(--text-900);">직접 집행 투자 규모<br><span style="color:var(--text-500); font-weight:500;">(CVC/VC/AC)</span></div>
+              <div style="font-size:12px; font-weight:700; color:var(--text-900);">직접 투자 집행 규모<br><span style="color:var(--text-500); font-weight:500;">(CVC/VC/AC)</span></div>
             </div>
             <div style="flex:1; min-width:160px; background:#F4F6F9; padding:20px; border:1px solid var(--border-light);">
               <div style="font-family:'Montserrat',sans-serif; font-size:26px; font-weight:900; color:var(--accent-gold); margin-bottom:6px;">13건</div>
-              <div style="font-size:12px; font-weight:700; color:var(--text-900);">투자·M&A 실행<br><span style="color:var(--text-500); font-weight:500;">(전략투자·구주·LP)</span></div>
+              <div style="font-size:12px; font-weight:700; color:var(--text-900);">투자 및 기업 매각 실행<br><span style="color:var(--text-500); font-weight:500;">(전략 투자, 매각 등)</span></div>
             </div>
             <div style="flex:1; min-width:160px; background:#F4F6F9; padding:20px; border:1px solid var(--border-light);">
               <div style="font-family:'Montserrat',sans-serif; font-size:26px; font-weight:900; color:var(--accent-gold); margin-bottom:6px;">20+</div>
-              <div style="font-size:12px; font-weight:700; color:var(--text-900);">정부·공공기관 심사위원<br><span style="color:var(--text-500); font-weight:500;">(2021~현재)</span></div>
+              <div style="font-size:12px; font-weight:700; color:var(--text-900);">정부/공공기관 심사위원<br><span style="color:var(--text-500); font-weight:500;">(2021년~현재)</span></div>
             </div>
           </div>
         </div>
 
         <div class="cv-section">
-          <div class="cv-sec-title">주요 경력 (투자 전주기)</div>
-          <div class="cv-tl-item">
-            <div class="cv-tl-year">2025.07 – 현재</div>
-            <div class="cv-tl-body">
-              <div class="cv-corp">엔트로프로 (ENTROPRO)</div>
-              <div class="cv-role">대표 파트너 | Business Engineer · 스타트업 구조대</div>
-              <div class="cv-desc">투자유치 구조 설계, IR 덱 엔지니어링, 투자자 매칭, Exit·M&A 지원, 스케일업 자문. 인하우스 파트너십 모델로 스타트업과 함께 실행</div>
-            </div>
-          </div>
+          <div class="cv-sec-title">주요 실무 경력</div>
           <div class="cv-tl-item">
             <div class="cv-tl-year">2024.01 – 현재</div>
             <div class="cv-tl-body">
-              <div class="cv-corp">더이노베이터스 / 2080벤처스코리아 (AC)</div>
-              <div class="cv-role">이사 | BA부문 투자심사 · 창업보육</div>
-              <div class="cv-desc">유망 스타트업 발굴, 투자 집행, TIPS 추천 및 후속 투자 연계 지원</div>
+              <div class="cv-corp">엔트로프로 (ENTROPRO)</div>
+              <div class="cv-role">대표 파트너 | 스타트업 구조대</div>
+              <div class="cv-desc">구조 개선, 투자 제안서 개편, 투자자 연결, 매각 지원, 해외 진출 조언. 성과 기반 파트너십 모델 운영</div>
             </div>
           </div>
           <div class="cv-tl-item">
             <div class="cv-tl-year">2023.01 – 2023.12</div>
             <div class="cv-tl-body">
               <div class="cv-corp">한양대학교 기술지주 (AC)</div>
-              <div class="cv-role">투자팀 이사 | Accelerator</div>
-              <div class="cv-desc">시드 투자 집행 및 TIPS 추천 (판도플랫폼, 비엘에프, 월더). 강원도 데이터 창업·벤처 육성사업 수주</div>
+              <div class="cv-role">투자팀 이사</div>
+              <div class="cv-desc">유망 스타트업 발굴 및 시드 투자 집행. 정부 지원 사업(TIPS) 추천 및 후속 투자 연계</div>
             </div>
           </div>
           <div class="cv-tl-item">
             <div class="cv-tl-year">2021.10 – 2022.12</div>
             <div class="cv-tl-body">
               <div class="cv-corp">로이투자파트너스 (VC)</div>
-              <div class="cv-role">수석심사역 | Venture Capital</div>
-              <div class="cv-desc">소부장(반도체/2차전지) 딥테크 기업 재무·사업·기술 실사(Tech DD). 펀드 결성을 위한 LP 대상 IR 수행</div>
+              <div class="cv-role">수석심사역</div>
+              <div class="cv-desc">딥테크 기업 재무 및 기술력 실사(Tech DD). 펀드 결성을 위한 투자자(LP) 대상 IR 수행</div>
             </div>
           </div>
           <div class="cv-tl-item">
             <div class="cv-tl-year">2015.01 – 2021.08</div>
             <div class="cv-tl-body">
               <div class="cv-corp">대림 / DL그룹 (CVC)</div>
-              <div class="cv-role">전략기획실 투자팀 차장 | CVC & M&A</div>
-              <div class="cv-desc">그룹 CVC 운영 체계 구축 및 <b>642억 원 투자 집행</b>. 비상장주식 투자 9건, Exit 1건. 반도체 특수가스 신사업 상업화, 유럽 정밀화학사 M&A 검토</div>
+              <div class="cv-role">전략기획실 투자팀 차장</div>
+              <div class="cv-desc">그룹 차원 투자 체계 구축 및 <b>642억 원 투자 집행</b>. 비상장 주식 투자 9건, 기업 매각 1건 성공. 신사업 상업화 총괄 및 유럽 기업 인수 검토</div>
             </div>
           </div>
           <div class="cv-tl-item">
@@ -785,30 +759,29 @@ nav {
             <div class="cv-tl-body">
               <div class="cv-corp">이수화학 / DL케미칼</div>
               <div class="cv-role">사업기획팀 | 신사업 개발</div>
-              <div class="cv-desc">전자용 솔벤트 신사업 생산 시설 투자 및 상업화(연 50억 매출). 석유화학 글로벌 합작법인(JV) 타당성 분석</div>
+              <div class="cv-desc">신사업 생산 시설 투자 및 상업화 주도(연 50억 원 매출 달성). 해외 합작법인(JV) 설립 타당성 분석</div>
             </div>
           </div>
         </div>
 
         <div class="cv-section">
-          <div class="cv-sec-title">학력 · 자격 · 강의 이력</div>
+          <div class="cv-sec-title">학력 및 자격</div>
           <ul style="list-style:none; font-size:14px; color:var(--text-900); font-weight:600; line-height:2;">
             <li>• <span style="color:var(--text-500);">[학력]</span> 아주대학교 대학원 화학공학과 공학석사 / 아주대학교 화학공학과 공학사</li>
             <li>• <span style="color:var(--text-500);">[자격]</span> 벤처캐피탈리스트 전문가 (한국벤처캐피탈협회), 고압가스 안전관리자, 정보처리기사</li>
-            <li>• <span style="color:var(--text-500);">[심사]</span> 창업진흥원·중소기업진흥공단·NIPA·서울창조경제혁신센터 외 20여개 기관 심사위원 (2021~현재)</li>
-            <li>• <span style="color:var(--text-500);">[강의]</span> 스타트업 투자유치 전략 강의 (서울경제진흥원, 샤오미AC, 대전창조경제혁신센터, 창업진흥원 등)</li>
+            <li>• <span style="color:var(--text-500);">[심사]</span> 창업진흥원, 중소벤처기업진흥공단 등 20여 개 정부 기관 평가위원 (2021년~현재)</li>
+            <li>• <span style="color:var(--text-500);">[강의]</span> 스타트업 투자 유치 방법 강의 (서울경제진흥원, 대전창조경제혁신센터 등)</li>
           </ul>
         </div>
       </div>
 
-      <!-- TALLY TAB -->
       <div id="tab-tally" class="tab-content">
         <div style="background:rgba(197,154,92,0.08); border:1px solid rgba(197,154,92,0.25); padding:20px 24px; margin-bottom:32px;">
           <p style="font-size:13px; font-weight:700; color:var(--text-900); margin:0; line-height:1.6;">
-            💡 <b>첫 번째 진단 세션은 완전 무료입니다.</b> IR 자료 및 현재 상황을 간략히 남겨주시면, 검토 후 연락드립니다. 제출된 모든 정보는 NDA 기준으로 관리됩니다.
+            💡 <b>상호 탐색을 위한 첫 만남은 완전 무료입니다.</b> 회사 소개서와 현재 직면한 병목을 남겨주시면, 검토 후 연락드립니다. 제출된 모든 정보는 기밀(NDA)로 철저히 보호됩니다.
           </p>
         </div>
-        <iframe src="https://tally.so/embed/ODdNyp?hideTitle=1&transparentBackground=1" width="100%" height="860" frameborder="0" marginheight="0" marginwidth="0" title="ENTROPRO 스타트업 구조대 의뢰 폼"></iframe>
+        <iframe src="https://tally.so/embed/ODdNyp?hideTitle=1&transparentBackground=1" width="100%" height="860" frameborder="0" marginheight="0" marginwidth="0" title="ENTROPRO 의뢰 폼"></iframe>
       </div>
 
     </div>
