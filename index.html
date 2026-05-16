@@ -308,6 +308,10 @@ nav {
 .track-record-band { background: rgba(19,34,56,0.03); border-bottom: var(--border-line); padding: 16px 0; text-align: center; font-family: 'Pretendard', sans-serif; font-size: 13px; font-weight: 800; color: var(--text-500); letter-spacing: 0.5px; }
 .track-record-band span { color: var(--text-900); margin: 0 14px; }
 
+@media(max-width: 768px) {
+  .hide-on-mobile { display: none !important; }
+}
+
 @media(max-width: 1024px) {
   .col-2, .col-3 { flex: 1 1 100%; }
   .cell { border-right: none; border-bottom: var(--border-line); padding: 48px 24px; }
@@ -339,7 +343,8 @@ nav {
       <span style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:700; color:var(--text-500); letter-spacing:0; margin-left:4px;">스타트업 구조대</span>
     </div>
     <div style="display:flex; align-items:center; gap:20px;">
-      <a onclick="openModal('profile')" class="nav-cv-link">파트너 이력</a>
+      <a href="https://entroprokr.github.io/service/" style="font-family:'Pretendard',sans-serif; font-size:12px; font-weight:700; color:var(--text-500); text-decoration:none; transition:0.2s;" onmouseover="this.style.color='var(--text-900)'" onmouseout="this.style.color='var(--text-500)'" class="hide-on-mobile">기관 투자자 전용 데스크 ➔</a>
+      <a onclick="openModal('profile')" class="nav-cv-link">파트너 이력 및 검증</a>
       <button onclick="openModal('tally')" class="label-outline" style="cursor:pointer; border:none; background:var(--text-900); color:#fff; padding:8px 16px;">사전 진단 신청</button>
     </div>
   </div>
@@ -401,7 +406,7 @@ nav {
 
   <div class="track-record-band">
     주요 실무 거점 :
-    <span>DL(대림)그룹 투자팀</span> •
+    <span>대림그룹 투자팀</span> •
     <span>로이투자파트너스 (VC)</span> •
     <span>한양대 기술지주 (AC)</span> 
   </div>
@@ -630,9 +635,13 @@ nav {
           <span>➔</span>
         </button>
         <button onclick="openModal('profile')" class="btn-secondary">
-          <span>대표 파트너 이력</span>
+          <span>대표 파트너 이력 및 검증</span>
           <span>➔</span>
         </button>
+        <a href="https://entroprokr.github.io/service/" class="btn-secondary" style="background: rgba(19, 34, 56, 0.02); color: var(--text-500); border-top: none;">
+          <span style="font-size: 14px;">혹시 기관 투자자(VC·PE)이신가요? 섀도우 파트너 데스크 이동</span>
+          <span>➔</span>
+        </a>
       </div>
 
       <div style="background:var(--text-900); padding:14px 56px; text-align:center;">
@@ -642,11 +651,11 @@ nav {
         </p>
       </div>
 
-      <!--<div style="padding:24px 56px; background:rgba(19,34,56,0.04);">
+      <div style="padding:24px 56px; background:rgba(19,34,56,0.04);">
         <p style="font-size:13px; color:var(--text-700); line-height:1.65; margin:0;">
           <b>P.S.</b> 비즈니스 협상의 마지막 결정은 결국 '사람'이 합니다. 의사결정을 앞둔 핵심 관계자의 정보를 가볍게 남겨주시면, 조직 내 역학관계와 숨은 리스크를 꿰뚫는 분석 자료를 세션에서 조용히 전달해 드립니다.
         </p>
-      </div>-->
+      </div>
     </div>
   </div>
 
